@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="fileHash.h" />
+    <ClInclude Include="findDuplicate.h" />
     <ClInclude Include="hashfunction.h" />
+    <ClInclude Include="readDirectory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fileHash.c" />
+    <ClCompile Include="findDuplicate.c" />
     <ClCompile Include="hashfunction.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="readDirectory.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

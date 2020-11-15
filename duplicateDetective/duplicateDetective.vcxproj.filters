@@ -21,6 +21,12 @@
     <ClInclude Include="hashfunction.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="findDuplicate.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="readDirectory.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -30,6 +36,12 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="hashfunction.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="findDuplicate.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="readDirectory.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

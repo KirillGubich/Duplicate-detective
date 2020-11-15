@@ -1,2 +1,6 @@
-﻿  main.c
+﻿  findDuplicate.c
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(28,15): warning C4013: readDirectory: нет определения; предполагается "extern" с возвратом типа "int"
+  main.c
+  readDirectory.c
+  Создание кода...
   duplicateDetective.vcxproj -> D:\University\3 семестр\Course project\duplicateDetective\Debug\duplicateDetective.exe
