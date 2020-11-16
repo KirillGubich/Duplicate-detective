@@ -7,3 +7,4 @@
 #define FOLDER 16384
 
 void readDirectory(FILES* files, char* path);
+void addFile(FILES* files, char* name);

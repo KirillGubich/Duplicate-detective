@@ -1,7 +1,5 @@
 #include "readdirectory.h"
 
-void addFile(FILES* files, char* name);
-
 // Read files from directory
 void readDirectory(FILES *files, char *path)
 {
@@ -45,6 +43,13 @@ long fileSize(char* path)
 	long size;
 
 	f = fopen(path, "r");
+
+	if (f == NULL)
+	{
+		perror("File name");
+		exit(1);
+	}
+
 	fseek(f, 0L, SEEK_END);
 	size = ftell(f);
 	fclose(f);
