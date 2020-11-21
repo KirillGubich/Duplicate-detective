@@ -8,7 +8,7 @@ void outputConsole(FILES* files);
 
 int main()
 {
-	char path[255] = "D:\\IrfanView";
+	char path[255] = "D:\\Test";
 	char* name;
 	name = (char*)malloc(BUFF * sizeof(char));
 	strcpy_s(name, BUFF, path);

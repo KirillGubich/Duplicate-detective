@@ -1,7 +1,7 @@
 ﻿  findDuplicate.c
 D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(17,15): warning C4013: readDirectory: нет определения; предполагается "extern" с возвратом типа "int"
-D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(177,28): warning C4018: <: несоответствие типов со знаком и без знака
-D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(178,29): warning C4018: >: несоответствие типов со знаком и без знака
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(176,28): warning C4018: <: несоответствие типов со знаком и без знака
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\findDuplicate.c(177,29): warning C4018: >: несоответствие типов со знаком и без знака
   main.c
   Создание кода...
   duplicateDetective.vcxproj -> D:\University\3 семестр\Course project\duplicateDetective\Debug\duplicateDetective.exe
