@@ -90,7 +90,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -145,10 +145,10 @@
     <ClInclude Include="readDirectory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EntryPoint.c" />
     <ClCompile Include="fileHash.c" />
     <ClCompile Include="findDuplicate.c" />
     <ClCompile Include="hashfunction.c" />
-    <ClCompile Include="main.c" />
     <ClCompile Include="readDirectory.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

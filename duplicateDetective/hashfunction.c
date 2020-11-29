@@ -83,12 +83,12 @@ const uint32_t crc32_tab[] =
 };
 
 // crc32 hash 
-uint32_t crc32(const unsigned char* buff, size_t len, uint32_t init_value)
+uint32_t crc32(const unsigned char* buff, size_t len)
 {
-	uint32_t crc = init_value;
+	uint_least32_t crc = 0xFFFFFFFF;
 	while (len--)
 		crc = (crc >> 8) ^ crc32_tab[(crc ^ *buff++) & 0xFF];
-
+	
 	return crc;
 	// Not inverted!
 }

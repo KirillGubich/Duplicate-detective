@@ -44,10 +44,10 @@ long fileSize(char* path)
 
 	f = fopen(path, "r");
 
+	// If file has incorrect name - NULL
 	if (f == NULL)
 	{
-		perror("File name");
-		exit(1);
+		return NULL;
 	}
 
 	fseek(f, 0L, SEEK_END);
@@ -59,13 +59,20 @@ long fileSize(char* path)
 // Adding file to array
 void addFile(FILES* files, char* name)
 {
+
+	// If file has incorrect size - return
+	if (fileSize(name) == NULL)
+	{
+		return;
+	}
+
 	files->count++;
 	struct fileInfo* tmp;
 	tmp = (struct fileInfo*)realloc(files->list, files->count * sizeof(struct fileInfo));
 
 	if (tmp != NULL)
 	{
-		files->list = tmp;
+		files->list = tmp;	
 		strcpy(files->list[files->count - 1].name, name);
 		files->list[files->count - 1].size = fileSize(name);
 		files->list[files->count - 1].hash = 0;

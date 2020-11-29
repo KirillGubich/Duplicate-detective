@@ -29,9 +29,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="fileHash.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -42,6 +39,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="readDirectory.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryPoint.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

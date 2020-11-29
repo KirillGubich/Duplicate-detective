@@ -4,8 +4,7 @@ FILES* findDup(char* path)
 {
 	// Checking directory existence
 	if (!isDirExist(path)) {
-		perror("diropen");
-		exit(1);
+		return NULL;
 	};
 	
 	FILES *files;
@@ -19,13 +18,15 @@ FILES* findDup(char* path)
 	// Sorting an array by file size
 	quickSortSize(files->list, 0, files->count - 1);
 
+	/*
 	for (int i = 0; i < files->count; i++)
 	{
 		printf("%s size: %d \n", files->list[i].name, files->list[i].size);
 	}
 	printf("Total files: %d \n", files->count);
 	puts("---------------------------------------");
-	
+	*/
+
 	// Only leave files with duplicate sizes
 	FILES *semisizeFiles;
 	semisizeFiles = getSemisizeFiles(files);

@@ -4,20 +4,22 @@
 // File hashing using CRC-32
 uint32_t fileHash(char file_name[255])
 {
-	uint32_t hash = DEFOULT_INIT;
 	uint8_t file_data[BUFFSIZE] = { '\0' };
-	size_t n_bytes_read;
-
-	FILE* file;
-	file = fopen(file_name, "r");
-
-	// The file is hashed in blocks until it is read in full
-	while (n_bytes_read = fread(file_data, 1, BUFFSIZE, file))
-	{
-		hash = crc32(file_data, n_bytes_read, hash);
+	FILE* f;
+	uint_least32_t crc = DEFOULT_INIT;
+	errno_t err;
+	err = fopen_s(&f, file_name, "rb");
+	if (err == 0 && f != NULL) {
+		while (!feof(f)) {
+			int result = fread(file_data, 1, BUFFSIZE, f);
+			if (result) {
+				crc = crc32(file_data, result, crc);
+			}
+		}
+		fclose(f);
 	}
 
-	fclose(file);
-
-	return hash ^ 0xFFFFFFFFUL;
+	// The value is inverted at the end so that it is possible 
+	// to calculate the hash function in parts in a loop
+	return crc ^ DEFOULT_INIT;
 }
