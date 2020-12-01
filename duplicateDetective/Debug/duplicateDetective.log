@@ -1,5 +1,5 @@
 ﻿  EntryPoint.c
-D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(252,12): warning C4047: =: "LPBROWSEINFOW *" отличается по уровням косвенного обращения от "BROWSEINFOA *"
-D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(255,34): warning C4047: функция: "LPBROWSEINFOA" отличается по уровням косвенного обращения от "LPBROWSEINFOW *"
-D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(255,34): warning C4024: SHBrowseForFolderA: различные типы для формального и фактического параметров 1
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(250,12): warning C4047: =: "LPBROWSEINFOW *" отличается по уровням косвенного обращения от "BROWSEINFOA *"
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(253,34): warning C4047: функция: "LPBROWSEINFOA" отличается по уровням косвенного обращения от "LPBROWSEINFOW *"
+D:\University\3 семестр\Course project\duplicateDetective\duplicateDetective\EntryPoint.c(253,34): warning C4024: SHBrowseForFolderA: различные типы для формального и фактического параметров 1
   duplicateDetective.vcxproj -> D:\University\3 семестр\Course project\duplicateDetective\Debug\duplicateDetective.exe

@@ -19,7 +19,7 @@
 
 HWND liboDup;
 HMENU hMenu;
-HINSTANCE My_hInst;
+HINSTANCE my_hInst;
 HWND dirWnd;
 FILES* duplicates = NULL;
 
@@ -110,7 +110,6 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 	return 0;
 }
 
-//Главное меню программы
 void MainMenu(HWND hWnd)
 {
 	hMenu = CreateMenu();
@@ -130,7 +129,7 @@ void MainMenu(HWND hWnd)
 	SetMenu(hWnd, hMenu);
 }
 
-//Создание элементов окна
+// Create controls
 void SetControls(HWND hWnd)
 {
 	CreateWindowW(L"Button", L"Scan", WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 100, WND_WIDTH - 115, 120,
@@ -157,12 +156,13 @@ void SetControls(HWND hWnd)
 		WND_WIDTH - 150,
 		hWnd,
 		NULL,
-		My_hInst,
+		my_hInst,
 		NULL);
 
 	SendMessageW(liboDup, LB_SETHORIZONTALEXTENT, (WPARAM)PATHMAXSIZE, (LPARAM)0);	
 }
 
+// Scan directiry for duplicates
 void scanDir()
 {
 	MessageBoxW(NULL, L"The program processes files only with names in Latin letters.", L"Info", MB_ICONINFORMATION | MB_OK);
