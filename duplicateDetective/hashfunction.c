@@ -10,7 +10,7 @@
   RefOut: true
   XorOut: 0xFFFFFFFF
   Check : 0xCBF43926 ("123456789")
-  MaxLen: 268 435 455 байт (2 147 483 647 бит)
+  MaxLen: 268 435 455 byte (2 147 483 647 bit)
 */
 
 // CRC-32 table
@@ -91,30 +91,4 @@ uint32_t crc32(const unsigned char* buff, size_t len)
 	
 	return crc;
 	// Not inverted!
-}
-
-// crc8 hash
-unsigned char crc8(unsigned char* bytes, size_t len)
-{
-	const unsigned char generator = 0x07;
-	unsigned char crc = 0; // Start with 0 so first byte can be 'xored' in 
-
-	for (int i = 0; i < len; i++)
-	{
-		crc ^= bytes[i]; // XOR-in the next input byte 
-
-		for (int j = 0; j < 8; j++)
-		{
-			if ((crc & 0x80) != 0)
-			{
-				crc = (unsigned char)((crc << 1) ^ generator);
-			}
-			else
-			{
-				crc <<= 1;
-			}
-		}
-	}
-
-	return crc;
 }

@@ -1,3 +1,5 @@
+// readDirectiry.c
+
 #include "readdirectory.h"
 
 // Read files from directory
@@ -39,21 +41,17 @@ void readDirectory(FILES *files, char *path)
 // Size of file
 long fileSize(char* path)
 {
-	FILE *f;
-	long size;
-
-	f = fopen(path, "r");
+	HANDLE hfile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
 	// If file has incorrect name - NULL
-	if (f == NULL)
+	if (hfile == NULL)
 	{
 		return NULL;
 	}
 
-	fseek(f, 0L, SEEK_END);
-	size = ftell(f);
-	fclose(f);
-	return size;
+	DWORD file_size = GetFileSize(hfile, NULL);
+	CloseHandle(hfile);
+	return file_size;
 }
 
 // Adding file to array

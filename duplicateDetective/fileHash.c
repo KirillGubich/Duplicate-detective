@@ -1,3 +1,5 @@
+// fileHash.c
+
 #include "fileHash.h"
 #include "hashfunction.h"
 

@@ -30,6 +30,8 @@ void scanDir();
 void viewResults();
 void saveResults();
 char* getDirectory();
+DWORD WINAPI scanThread(LPVOID lpParam);
+void startScanning();
 
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -41,10 +43,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 			saveResults();
 			break;
 		case MENU_SCAN:
-			scanDir();
+			startScanning();
 			break;
 		case MENU_CLEAR_RESULTS:
 			SendMessageW(liboDup, LB_RESETCONTENT, (WPARAM)0, (LPARAM)0);
+			duplicates = NULL;
 			break;
 		case MENU_EXIT:
 			MessageBeep(MB_OK);
@@ -165,13 +168,13 @@ void SetControls(HWND hWnd)
 // Scan directiry for duplicates
 void scanDir()
 {
-	MessageBoxW(NULL, L"The program processes files only with names in Latin letters.", L"Info", MB_ICONINFORMATION | MB_OK);
+	//MessageBoxW(NULL, L"The program processes files only with names in Latin letters.", L"Info", MB_ICONINFORMATION | MB_OK);
 	SendMessageW(liboDup, LB_RESETCONTENT, (WPARAM)0, (LPARAM)0);
 	
 	char* path;
 
 	path = getDirectory();
-
+	SendMessageA(liboDup, LB_ADDSTRING, (WPARAM)0, (LPARAM)"Scanning in progress...");
 	duplicates = findDup(path);
 	if (duplicates != NULL)
 	{
@@ -180,13 +183,27 @@ void scanDir()
 	else
 	{
 		MessageBox(GetActiveWindow(), L"Directory selection error. Try again.",L"Error", MB_ICONERROR);
+		SendMessageW(liboDup, LB_RESETCONTENT, (WPARAM)0, (LPARAM)0);
 	}
-	
 	free(path);
+}
+
+void startScanning()
+{
+	DWORD dwThreadId, dwThrdParam = 1;
+	HANDLE hThread;
+	hThread = CreateThread(NULL, 0, scanThread, &dwThrdParam, 0, &dwThreadId);
+}
+
+DWORD WINAPI scanThread(LPVOID lpParam)
+{
+	scanDir();
+	return 0;
 }
 
 void viewResults()
 {
+	SendMessageW(liboDup, LB_RESETCONTENT, (WPARAM)0, (LPARAM)0);
 	if (duplicates->count == 0)
 	{
 		SendMessageA(liboDup, LB_ADDSTRING, (WPARAM)0, (LPARAM)"No duplicates found");
@@ -231,7 +248,7 @@ void saveResults()
 	}
 	
 	outputToFile(duplicates, path);
-	MessageBoxW(NULL, L"Information saved successfully.", L"Info", MB_ICONINFORMATION | MB_OK);
+	MessageBoxW(NULL, L"Information successfully saved.", L"Info", MB_ICONINFORMATION | MB_OK);
 }
 
 char* getDirectory()

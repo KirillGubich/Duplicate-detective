@@ -1,3 +1,5 @@
+// findDUplicate.c
+
 #include "findDuplicate.h"
 
 FILES* findDup(char* path)
