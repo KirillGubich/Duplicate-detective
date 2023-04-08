@@ -1,0 +1,2 @@
+cd Debug
+./duplicateDetective.exe
